@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>emailExploder web app</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script language="JavaScript">
+      if (top != self){
+        top.location.href = location.href;
+      }
+    </script>
+    <link href="html/noside/css/grid.css" rel="stylesheet" type="text/css"  />
+    <link href="html/noside/css/page.css" rel="stylesheet" type="text/css" />
+    <link href="html/noside/css/body.css" rel="stylesheet" type="text/css" />
+    <link href="html/noside/css/parTools.css" rel="stylesheet" type="text/css" />
+    <link href="html/noside/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css"  />
+
+  </head>
+  <body>
+
+    <div class="container ">
+
+      <div id="node-top" class="span-99"></div>
+      <div id="node" class="span-99 content">
+
+      <h2>Email Distribution Lists</h2>
+      <div class="node" style="width: 900px;">
+        <div class="content"><p>Lists with the link 'subscribe' displayed to the right of the list name are available for subscription.</p></div>
+        <div class="content"><p>Show me all the lists that <input type='text' name='userX' id='userX' placeholder='person'> belongs to.</p></div>
+
+        <ol class="commentlist" style="display: none" name='test' id='test'>
+        </ol>
+
+        <ol class="commentlist" id='list'>
+          <li id='[x.#;block=li;magnet=li]X' class="comment odd">
+            <div class="comment-body">
+              <h3>[list.mail;block=div;p1=[x.$];htmlconv=no]</h3>
+              <p><i>[list.description;magnet=i]</i> (<a href='[x.#]' class='click'>display members</a>)</p>
+              <ul style="display: none" id='[x.#]'>
+                <li class="comment odd"><a href='mailto:[user.mail;block=_;p1=[x.$];bmagnet=li]'>[user.displayname;magnet=li]</a></li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+
+      </div>
+
+      </div><!--end main body-->
+      <div id="node-bottom" class="span-99"></div>  
+    </div><!--END container-->
+
+    <script type="text/javascript" src="html/noside/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="html/noside/js/jquery-ui-1.10.3.custom.min.js"></script>
+
+    <script language="javascript" type="text/javascript">
+      var placeholder = '';
+      $(document).ready(function () {
+        var suggestions = [
+          { label: "[membership.$;block=_]", value: "[membership.val;htmlconv=no]" },
+        ];
+        $('#userX').autocomplete({source: suggestions}, {
+          select: function( event, ui ) {
+            $('#userX').val(ui.item.label);
+            $('#test').html(ui.item.value).show();
+            return false;
+          }
+        });
+
+
+          $(".click").click(function() {
+            var x = $(this).attr('href');
+            $("#" + x + "").toggle("slow");
+            return false;
+          });
+
+        }
+      );
+    </script>
+  </body>
+</html>
