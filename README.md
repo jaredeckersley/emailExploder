@@ -6,6 +6,12 @@ This application pulls your companies email distribution lists from Google and A
 
 This application is a bit specific to my companies setup, but can be used as a good starting point when developing for your own company.
 
+Have a look at the settings inside the cron.php file. Use the emailExploder.sql file to create your tables. 
+
+Setup a cron service to execute the cron.php file as often as you need - I have mine setup for every 15 minutes.
+
+If you want to use the small web app included with this, edit the app/includes/emailExploder.class.php file to include your database settings.
+
 ![alt tag](https://github.com/jaredeckersley/emailExploder/blob/master/emailExploder.png)
 
 
