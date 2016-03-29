@@ -6,6 +6,9 @@ This application pulls your companies email distribution lists from Google and A
 
 This application is a bit specific to my companies setup, but can be used as a good starting point when developing for your own company.
 
+![alt tag](https://github.com/jaredeckersley/emailExploder/blob/master/emailExploder.png)
+
+
 ```
 For my setup, there are 2 types of groups - Google managed and AD managed.  
 
